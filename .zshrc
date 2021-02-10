@@ -1,6 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/home/connor/.local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH="$HOME/opt/cross/bin:$PATH"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export PATH="$PATH:/home/connor/.dotnet/tools"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/connor/.oh-my-zsh"
@@ -9,7 +14,7 @@ export ZSH="/home/connor/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="bira"
+ZSH_THEME="clean"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -69,23 +74,23 @@ ZSH_THEME="bira"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -101,6 +106,21 @@ source $ZSH/oh-my-zsh.sh
 
 # pip alias
 alias pip="python -m pip"
+alias ls='exa --color=always --group-directories-first'
+alias la='exa -a --color=always --group-directories-first'
+alias ll='exa -al --color=always --group-directories-first'
+alias l.='exa -a --color=always | grep "^\."'
+
+alias screenshot="maim -s -u | xclip -selection clipboard -t image/png -i"
+
+# POLARIS
+alias cdhpro="cd /home/connor/polaris/horizon-pro-api"
+alias gca="git commit -a"
+alias polaris="cd /home/connor/polaris"
+alias npr="npm run"
+
+# vim mode
+bindkey -v
 
 # autoactivate virtual environments
 function cd() {
@@ -120,3 +140,7 @@ function cd() {
   fi
 }
 
+# NVM Stuff
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

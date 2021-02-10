@@ -50,9 +50,25 @@ set noshowmode
 
 execute pathogen#infect()
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatusLineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" clang-format
+autocmd FileType c ClangFormatAutoEnable
+
+" NERDTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeWinPos='right'
 let NERDTreeignore=['\.pyc$', '\~$']
+" refresh nerdtree
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 set rtp+=~/.fzf
