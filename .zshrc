@@ -111,13 +111,20 @@ alias la='exa -a --color=always --group-directories-first'
 alias ll='exa -al --color=always --group-directories-first'
 alias l.='exa -a --color=always | grep "^\."'
 
+# maim screencap and snippet
 alias screenshot="maim -s -u | xclip -selection clipboard -t image/png -i"
+# edit .vimrc
+alias vimrc="vim ~/.vimrc"
+alias zshrc="vim ~/.zshrc"
 
 # POLARIS
 alias cdhpro="cd /home/connor/polaris/horizon-pro-api"
 alias gca="git commit -a"
-alias polaris="cd /home/connor/polaris"
 alias npr="npm run"
+alias npd="npm run develop"
+alias polaris="code /home/connor/polaris/polaris.code-workspace && cd ~/polaris"
+alias cdpol="cd /home/connor/polaris"
+alias notes="vim /home/connor/polaris/notes.txt"
 
 # vim mode
 bindkey -v

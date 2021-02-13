@@ -7,10 +7,18 @@ set encoding=utf-8
 set hlsearch
 set autoindent
 set smarttab
-set ts=2
-set sw=0
-set sts=0
+
 set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+" makefile use tabs
+autocmd FileType make set tabstop=2 shiftwidth=2 softtabstop=0 noexpandtab
+
+" mark whitespace
+let c_space_errors=1
+highlight RedundantSpaces ctermbg=red guibg=red
+match RedundantSpaces /\s\+$\| \+\ze\t/
 
 autocmd FileType python setlocal ts=2 sw=2 sts=2 expandtab
 
@@ -60,6 +68,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" typescript
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+
 " clang-format
 autocmd FileType c ClangFormatAutoEnable
 
@@ -72,3 +83,12 @@ let NERDTreeignore=['\.pyc$', '\~$']
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 set rtp+=~/.fzf
+
+" Vim Plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
+
+call plug#end()
