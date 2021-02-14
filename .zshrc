@@ -113,9 +113,13 @@ alias l.='exa -a --color=always | grep "^\."'
 
 # maim screencap and snippet
 alias screenshot="maim -s -u | xclip -selection clipboard -t image/png -i"
-# edit .vimrc
+
+# edit .vimrc and .zshrc
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
+
+# general
+alias chmodx="chmod +x"
 
 # POLARIS
 alias cdhpro="cd /home/connor/polaris/horizon-pro-api"
