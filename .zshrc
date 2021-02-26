@@ -7,6 +7,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export PATH="$PATH:/home/connor/.dotnet/tools"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/connor/.oh-my-zsh"
 
@@ -116,7 +117,7 @@ alias screenshot="maim -s -u | xclip -selection clipboard -t image/png -i"
 
 # edit .vimrc and .zshrc
 alias vimrc="vim ~/.vimrc"
-alias zshrc="vim ~/.zshrc"
+alias zshrc="vim ~/.zshrc && source ~/.zshrc"
 
 # general
 alias chmodx="chmod +x"
@@ -127,6 +128,7 @@ alias gca="git commit -a"
 alias npr="npm run"
 alias npd="npm run develop"
 alias polaris="code /home/connor/polaris/polaris.code-workspace && cd ~/polaris"
+alias codep="code /home/connor/polaris/polaris.code-workspace "
 alias cdpol="cd /home/connor/polaris"
 alias notes="vim /home/connor/polaris/notes.txt"
 
@@ -155,3 +157,9 @@ function cd() {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# ls after cd
+function chpwd() {
+  emulate -L zsh
+  ls
+}

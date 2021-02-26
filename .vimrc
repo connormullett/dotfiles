@@ -69,7 +69,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " typescript
-autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+" autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 
 " clang-format
 autocmd FileType c ClangFormatAutoEnable
@@ -85,10 +85,10 @@ nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 set rtp+=~/.fzf
 
 " Vim Plug
-call plug#begin('~/.vim/plugged')
+" call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'HerringtonDarkholme/yats.vim'
 
-call plug#end()
+" call plug#end()
