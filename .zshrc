@@ -121,6 +121,9 @@ alias zshrc="vim ~/.zshrc && source ~/.zshrc"
 
 # general
 alias chmodx="chmod +x"
+alias cat="bat"
+alias gdiff="git diff --name-only | xargs bat --diff"
+alias gdb="gdb -tui"
 
 # POLARIS
 alias cdhpro="cd /home/connor/polaris/horizon-pro-api"

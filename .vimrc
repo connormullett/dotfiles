@@ -9,13 +9,13 @@ set autoindent
 set smarttab
 
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 
 " makefile use tabs
 autocmd FileType make set tabstop=2 shiftwidth=2 softtabstop=0 noexpandtab
 
-" mark whitespace
+" mark extra whitespace
 let c_space_errors=1
 highlight RedundantSpaces ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/
@@ -31,9 +31,6 @@ nnoremap <silent> zk O<Esc>j
 " buffers as tabs
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-
-" kite on statusline
-" let g:airline_section_y = '%{kite#statusline()}'
 
 set hidden
 nmap <leader>T :enew<CR>
@@ -68,9 +65,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" typescript
-" autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-
 " clang-format
 autocmd FileType c ClangFormatAutoEnable
 
@@ -84,11 +78,3 @@ nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 set rtp+=~/.fzf
 
-" Vim Plug
-" call plug#begin('~/.vim/plugged')
-
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'maxmellon/vim-jsx-pretty'
-" Plug 'HerringtonDarkholme/yats.vim'
-
-" call plug#end()
