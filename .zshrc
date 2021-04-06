@@ -115,15 +115,16 @@ alias l.='exa -a --color=always | grep "^\."'
 # maim screencap and snippet
 alias screenshot="maim -s -u | xclip -selection clipboard -t image/png -i"
 
-# edit .vimrc and .zshrc
-alias vimrc="vim ~/.vimrc"
-alias zshrc="vim ~/.zshrc && source ~/.zshrc"
+# edit .vimrc, .zshrc, .tmux.conf.local
+alias vimrc="nvim ~/.vimrc"
+alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
+alias tmuxrc="nvim ~/.tmux.conf.local"
 
 # general
 alias chmodx="chmod +x"
-alias cat="bat"
 alias gdiff="git diff --name-only | xargs bat --diff"
 alias gdb="gdb -tui"
+alias fz="fzf | xargs nvim"
 
 # POLARIS
 alias cdhpro="cd /home/connor/polaris/horizon-pro-api"
@@ -133,7 +134,8 @@ alias npd="npm run develop"
 alias polaris="code /home/connor/polaris/polaris.code-workspace && cd ~/polaris"
 alias codep="code /home/connor/polaris/polaris.code-workspace "
 alias cdpol="cd /home/connor/polaris"
-alias notes="vim /home/connor/polaris/notes.txt"
+alias notes="nvim /home/connor/polaris/notes.md"
+alias vim="nvim"
 
 # vim mode
 bindkey -v
@@ -166,3 +168,5 @@ function chpwd() {
   emulate -L zsh
   ls
 }
+
+bindkey '^ ' autosuggest-accept
