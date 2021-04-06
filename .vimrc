@@ -30,9 +30,6 @@ autocmd FileType python setlocal ts=2 sw=2 sts=2 expandtab
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
-" double tap space, go to previous buffer
-nnoremap <leader><leader> :b#<CR>
-
 " create blank line and stay in normal mode
 nnoremap <silent> zj o<Esc>k
 nnoremap <silent> zk O<Esc>j
@@ -41,19 +38,29 @@ nnoremap <silent> zk O<Esc>j
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+" no --INSERT--
 set hidden
+" create tab as new file
 nmap <leader>T :enew<CR>
+" go to next tab
 nmap <leader>l :bnext<CR>
+" next tab
 nmap <leader>h :bprevious<CR>
-
+" close current tab
 nmap <leader>bq :bp <BAR> bd #<CR>
 
+" double tap space, go to previous buffer
+nnoremap <leader><leader> :b#<CR>
+
+" clear highlight
 map <leader>c :noh<CR>
 
+" TRANSPARANCY
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight Visual cterm=reverse ctermbg=none
 
+" relative line numbers
 set nu! rnu!
 
 let g:airline_powerline_fonts = 1
@@ -61,6 +68,9 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 
 set noshowmode
+
+
+" PLUGINS
 
 execute pathogen#infect()
 
@@ -74,6 +84,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" change warn colors
+hi SpellCap ctermfg=027 ctermbg=226
+
 " YouCompleteMe
 " disable preview window
 set completeopt-=preview
@@ -82,10 +95,14 @@ set completeopt-=preview
 autocmd FileType c ClangFormatAutoEnable
 
 " NERDTree
+" open nerd tree
 map <C-n> :NERDTreeToggle<CR>
+" nerd tree disabled until toggled
 let NERDTreeShowHidden=1
+" nerd tree goes on the right
 let NERDTreeWinPos='right'
-let NERDTreeignore=['\.pyc$', '\~$']
+" ignore files that match these patterns
+let NERDTreeignore=['\.pyc$', '\~$', '\.git$']
 " refresh nerdtree
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
@@ -102,12 +119,10 @@ Plug 'airblade/vim-rooter'
 
 call plug#end()
 
-" vim-rooter
-let g:rooter_patterns = ["=src"]
-
 " fzf
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 
+" search files like ctrl+f in chrome
 nnoremap <silent> <C-f> :Files<CR>
 
 " fzf use rg
